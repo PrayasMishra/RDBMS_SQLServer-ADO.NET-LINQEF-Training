@@ -1,0 +1,102 @@
+CREATE DATABASE Prayas
+
+CREATE TYPE EMAILUDT FROM VARCHAR(100) NOT NULL
+
+CREATE SCHEMA SALES
+--CREATE TABLE BY USING SCHEMA
+
+CREATE TABLE SALES.PRODUCTDETAILS(
+								ID INT NOT NULL,
+								PRODUCTNAME VARCHAR(100) NOT NULL,
+                                [Description]
+								VARCHAR(200),
+								CATEGORY VARCHAR(50) NOT NULL,
+								SUBCATEGORY VARCHAR(50),
+								PRICE MONEY NOT NULL,
+								QUANTITY SMALLINT NOT NULL
+								)
+
+SP_HELP 'SALES.PRODUCTDETAILS'
+
+
+CREATE TABLE EMPLOYEE(
+						ID INT NOT NULL,
+						FIRSTNAME EMAILUDT,
+						LASTNAME VARCHAR(100),
+						EMAILID EMAILUDT
+					)
+				
+SP_HELP EMPLOYEE
+
+ALTER TABLE Employee ALTER COLUMN FirstName VARCHAR(200) NOT NULL
+
+ALTER TABLE Employee ADD MobileNo CHAR(10) NOT NULL
+
+--RENAME A COLUMN:	SP_RENAME 'TABLE_NAME.OLD_COLUMN_NAME','NEW_COLUMN_NAME'
+
+SP_RENAME 'Employee.EmailID','EmailAddress'
+
+--DML: INSERT TABLENAME(COLUMN LIST) VALUES(VALUES FOR THE COLUMNS)
+INSERT 
+Sales.PRODUCTDETAILS(
+						ID,
+						PRODUCTNAME,
+						[Description],
+						PRICE,
+						QUANTITY,
+						SUBCATEGORY,
+						CATEGORY
+					)
+VALUES	(
+			1,
+			'FAN',
+			'TABLE FAN',
+			2500.50,
+			2,
+			'HOUSEHOLD',
+			'ELECTRONICS'
+		)
+
+SELECT * FROM SALES.PRODUCTDETAILS
+
+DROP TABLE EMPLOYEE
+
+CREATE 
+TABLE Employee	(
+					Id INT IDENTITY(1001,1),
+					FirstName VARCHAR(200) NOT NULL,
+					LastName VARCHAR(50),
+					EmailAddress EmailUDT,
+					MobileNo CHAR(10) NOT NULL
+				)
+SP_HELP Employee
+
+INSERT
+Employee(
+			FirstName,
+			LastName,
+			EmailAddress,
+			MobileNo
+		)
+VALUES	(
+			'PRAYAS',
+			'MISHRA',
+			'prayas21mishra@gmail.com',
+			'8917545985'
+		)
+
+INSERT
+Employee(
+			FirstName,
+			LastName,
+			EmailAddress,
+			MobileNo
+		)
+VALUES	(
+			'KAYAL',
+			'MEHRA',
+			'kayalmehera11@gmail.com',
+			'7873145985'
+		)
+
+SELECT * FROM Employee

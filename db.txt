@@ -1,0 +1,38 @@
+--Customer--
+
+Id, Name, MobileNo, EmailId, City, Pincode
+
+Id - Primary Key, auto number
+
+PinCode should be 6 digits
+
+MobileNo should be 10 digits and Uniuq
+
+EmailId should be uniuqe
+
+All the column are not null
+
+--OrderDetails--
+
+Id, Description, OrderDate, TotalPrice, Quantity
+
+Id- Primary Key, auto number
+
+Description - not null,
+
+OrderDate - should be today's date
+
+TotalPrice should be greater than zero
+
+Quantity should between 1 to 10
+
+Create a foreign key column for Customer Id
+
+
+
+
+
+
+
+
+
